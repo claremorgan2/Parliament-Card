@@ -1,0 +1,226 @@
+// colours
+$brand-colour: #373151;
+$grey-1: #F4F1F1;
+$grey-2: #4D4D4D;
+$alert-colour: #A72326;
+$background-colour: #FFFFFF;
+
+// font stack
+$font-stack: Verdana, Arial, sans-serif; //spec says veranda but assuming verdana as couldn't find a veranda font
+
+// Typography sizes
+$font-size-primary-sm: 26px;
+$font-size-primary-lg: 30px;
+$font-size-secondary-sm: 20px;
+$font-size-secondary-lg: 22px;
+$font-size-tertiary-sm: 18px;
+$font-size-tertiary-lg: 18px;
+
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// Line heights
+$line-height-primary-sm: 1.25rem;
+$line-height-secondary-sm: 1.35rem;
+$line-height-tertiary-sm: 1.5rem;
+$line-height-primary-lg: 1.25rem;
+$line-height-secondary-lg: 1.35rem;
+$line-height-tertiary-lg: 1.5rem;
+
+// Spacing – small screens 0 -500px
+$spacing-name-sm: 5px;
+$spacing-constituency-top-sm: 15px;
+$spacing-right-image-sm: 20px;
+
+// Spacing – large screens 501px+
+$spacing-party-lg: 20px;
+$spacing-name-lg: 20px; // there is nothing in the spec for this but it looks like there should be from the card image in the spec
+$spacing-constituency-top-lg: 20px;
+//$spacing-constituency-bottom-lg: 20px;
+
+// Image sizes
+$image-size-sm: 60px;
+$image-size-lg: 100px;
+$image-border-sm: 3px;
+$image-border-lg: 5px;
+
+// No longer serving
+$padding-no-serving-sm: 10px 15px 10px 15px; // top, right, bottom, left
+$padding-no-serving-lg: 15px 15px 15px 15px;
+$spacing-no-longer-top-sm:20px;
+$spacing-no-longer-top-lg: 20px;
+
+// Card
+$card-border-sm: 5px;
+$card-border-lg: 5px;
+$card-width-sm: 100%;
+$card-width-lg: 450px;
+$card-padding-sm: 15px 15px 10px 15px;
+$card-padding-lg: 20px 20px 15px 20px;
+
+// Body
+$body-padding-sm: 30px 15px 0 15px; // top, right, bottom, left
+$body-padding-lg: 30px 0 0 0;
+
+body {
+  background-color: $grey-1;
+}
+
+.card {
+  background-color: $background-colour;
+  font-family: $font-stack;
+  border-style: solid;
+  border-color: $brand-colour;
+  border-width: 0; // set to stop full border
+}
+
+.card-content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.card-image-wrapper {
+  flex-shrink: 0; // stop the image from shrinking if flex container gets narrower.
+}
+
+.card-image {
+  object-fit: cover;
+  border-radius: 50%; // make it a circle
+  border-style: solid;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.party {
+  font-weight: $font-weight-regular;
+  color: $grey-2;
+}
+
+.name {
+  font-weight: $font-weight-bold;
+  color: $brand-colour;
+}
+
+.constituency {
+  font-weight: $font-weight-regular;
+  color: $grey-2;
+}
+
+.no-longer {
+  color: $alert-colour;
+  background-color: $grey-1;
+  font-weight: $font-weight-bold;
+}
+
+// Small screens: 0–500px
+@media (max-width: 500px) {
+  body {
+    padding: $body-padding-sm;
+  }
+
+  .card {
+    width: $card-width-sm; //card fills whole width
+    border-top-width: $card-border-sm;
+    padding: $card-padding-sm;
+  }
+
+  .card-content {
+    flex-direction: row;
+  }
+
+  .card-text {
+    align-items: flex-start;
+  }
+
+  .card-image {
+    width: $image-size-sm;
+    height: $image-size-sm;
+    border-width: $image-border-sm;
+  }
+
+  .card-image-wrapper {
+    margin-right: $spacing-right-image-sm;
+  }
+
+  .party {
+    //margin-top: $spacing-party-sm;
+    font-size: $font-size-secondary-sm;
+    line-height: $line-height-secondary-sm;
+  }
+
+  .name {
+    margin-top: $spacing-name-sm;
+    font-size: $font-size-primary-sm;
+    line-height: $line-height-primary-sm;
+  }
+
+  .constituency {
+    margin-top: $spacing-constituency-top-sm;
+    font-size: $font-size-tertiary-sm;
+    line-height: $line-height-tertiary-sm;
+  }
+
+  .no-longer {
+    margin-top: $spacing-no-longer-top-sm;
+    font-size: $font-size-tertiary-sm;
+    line-height: $line-height-tertiary-sm;
+    padding: $padding-no-serving-sm;
+  }
+}
+
+// Large screens: 501px and above
+@media (min-width: 501px) {
+  body {
+    padding: $body-padding-lg;
+    display: flex;
+    justify-content: center; //card in centre of page
+  }
+
+  .card {
+    width: $card-width-lg; //fixed width of 450px
+    border-left-width: $card-border-lg;
+    padding: $card-padding-lg;
+  }
+
+  .card-content {
+    flex-direction: column;
+  }
+
+  .card-text {
+    align-items: flex-start;
+  }
+
+  .card-image {
+    width: $image-size-lg;
+    height: $image-size-lg;
+    border-width: $image-border-lg;
+  }
+
+  .party {
+    margin-top: $spacing-party-lg;
+    font-size: $font-size-secondary-lg;
+    line-height: $line-height-secondary-lg;
+  }
+
+  .name {
+    margin-top: $spacing-name-lg;
+    font-size: $font-size-primary-lg;
+    line-height: $line-height-primary-lg;
+  }
+
+  .constituency {
+    margin-top: $spacing-constituency-top-lg;
+    font-size: $font-size-tertiary-lg;
+    line-height: $line-height-tertiary-lg;
+  }
+
+  .no-longer {
+    margin-top: $spacing-no-longer-top-lg;
+    padding: $padding-no-serving-lg;
+    line-height: $line-height-tertiary-lg;
+    font-size: $font-size-tertiary-lg;
+  }
+}
