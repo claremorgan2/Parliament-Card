@@ -28,15 +28,14 @@ $line-height-secondary-lg: 1.35rem;
 $line-height-tertiary-lg: 1.5rem;
 
 // Spacing – small screens 0 -500px
-$spacing-name-sm: 5px;
+$spacing-name-top-sm: 5px;
 $spacing-constituency-top-sm: 15px;
-$spacing-right-image-sm: 20px;
+$spacing-image-right-sm: 20px;
 
 // Spacing – large screens 501px+
 $spacing-party-lg: 20px;
-$spacing-name-lg: 20px; // there is nothing in the spec for this but it looks like there should be from the card image in the spec
+$spacing-name-top-lg: 20px; // No spacing between party and name in the spec but visual looks like there should be, normally with check this with UX designer
 $spacing-constituency-top-lg: 20px;
-//$spacing-constituency-bottom-lg: 20px;
 
 // Image sizes
 $image-size-sm: 60px;
@@ -45,9 +44,9 @@ $image-border-sm: 3px;
 $image-border-lg: 5px;
 
 // No longer serving
-$padding-no-serving-sm: 10px 15px 10px 15px; // top, right, bottom, left
-$padding-no-serving-lg: 15px 15px 15px 15px;
-$spacing-no-longer-top-sm:20px;
+$padding-no-longer-sm: 10px 15px 10px 15px; // top, right, bottom, left
+$padding-no-longer-lg: 15px 15px 15px 15px;
+$spacing-no-longer-top-sm: 20px;
 $spacing-no-longer-top-lg: 20px;
 
 // Card
@@ -71,7 +70,7 @@ body {
   font-family: $font-stack;
   border-style: solid;
   border-color: $brand-colour;
-  border-width: 0; // set to stop full border
+  border-width: 0; // stop full border
 }
 
 .card-content {
@@ -85,7 +84,7 @@ body {
 
 .card-image {
   object-fit: cover;
-  border-radius: 50%; // make it a circle
+  border-radius: 50%; // circle
   border-style: solid;
 }
 
@@ -142,17 +141,16 @@ body {
   }
 
   .card-image-wrapper {
-    margin-right: $spacing-right-image-sm;
+    margin-right: $spacing-image-right-sm;
   }
 
   .party {
-    //margin-top: $spacing-party-sm;
     font-size: $font-size-secondary-sm;
     line-height: $line-height-secondary-sm;
   }
 
   .name {
-    margin-top: $spacing-name-sm;
+    margin-top: $spacing-name-top-sm;
     font-size: $font-size-primary-sm;
     line-height: $line-height-primary-sm;
   }
@@ -167,7 +165,7 @@ body {
     margin-top: $spacing-no-longer-top-sm;
     font-size: $font-size-tertiary-sm;
     line-height: $line-height-tertiary-sm;
-    padding: $padding-no-serving-sm;
+    padding: $padding-no-longer-sm;
   }
 }
 
@@ -206,7 +204,7 @@ body {
   }
 
   .name {
-    margin-top: $spacing-name-lg;
+    margin-top: $spacing-name-top-lg;
     font-size: $font-size-primary-lg;
     line-height: $line-height-primary-lg;
   }
@@ -219,7 +217,7 @@ body {
 
   .no-longer {
     margin-top: $spacing-no-longer-top-lg;
-    padding: $padding-no-serving-lg;
+    padding: $padding-no-longer-lg;
     line-height: $line-height-tertiary-lg;
     font-size: $font-size-tertiary-lg;
   }

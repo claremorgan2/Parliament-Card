@@ -19,10 +19,9 @@ class Main {
     }
   }
 
-  //Fetches data for member from the parliament API
+  // Fetches data for member from the parliament API
   private async fetchMemberData(memberId: string): Promise<void> {
     try {
-      //const response = await fetch(`https://members.parliament.uk/api/Members/${memberId}`);
       const response = await fetch(`https://members-api.parliament.uk/api/Members/${memberId}`);
       const json = await response.json();
       const data = json.value
@@ -49,7 +48,7 @@ class Main {
     }
   }
 
-  //Renders the member card into the container on the browser page
+  // Renders the member card into the container on the browser page
   private renderCard(data: {
     name: string;
     party: string;
@@ -75,7 +74,7 @@ class Main {
     container.appendChild(card);
   }
 
-  //Creates a DOM element for the member card and returns HTML element
+  // Creates a DOM element for the member card and returns HTML element
   private createCard(data: {
     party: string;
     name: string;
@@ -87,7 +86,7 @@ class Main {
     const card = document.createElement('div')
     card.className = 'card';
 
-  //Check is the memeber is no longer serving and return the text if so
+    // Check is the member is no longer serving and return the text if so
     const isNoLongerServing = data.endDate !== null && new Date(data.endDate).getTime() < new Date().getTime();
 
     const noLongerText = isNoLongerServing ? `<div class="no-longer-wrapper">
@@ -96,17 +95,17 @@ class Main {
 
     // Construct inner HTML for card
     card.innerHTML = `
-    <div class="card-content">
-    <div class="card-image-wrapper">
-    <img src=${data.imageUrl} alt="" class="card-image" style="border-color: ${data.partyColour}"/>
-    </div>
-    <div class = 'card-text'>
-      <div class="party">${data.party}</div>
-      <div class="name">${data.name}</div>
-      <div class="constituency">${data.constituency}</div>
-      ${noLongerText}
-      </div>
-    </div> `;
+      <div class="card-content">
+        <div class="card-image-wrapper">
+          <img src=${data.imageUrl} alt="" class="card-image" style="border-color: ${data.partyColour}"/>
+        </div>
+        <div class = 'card-text'>
+          <div class="party">${data.party}</div>
+          <div class="name">${data.name}</div>
+          <div class="constituency">${data.constituency}</div>
+          ${noLongerText}
+        </div>
+      </div> `;
     return card;
   }
 
